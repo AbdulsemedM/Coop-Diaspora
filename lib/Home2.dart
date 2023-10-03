@@ -12,16 +12,16 @@ class Home2 extends StatefulWidget {
 
 class _Home2State extends State<Home2> {
   List<Product> productList = [
-    Product('assets/images/black_chair.jpg', 'Black Chair', 90, 15),
-    Product('assets/images/blue_sofa.jpg', 'Awesome Sofa', 100, 10),
-    Product('assets/images/copper_lamp.jpg', 'Copper Lamp', 10, 25),
-    Product('assets/images/orange_lamp.jpg', 'Orange Lamp', 9, 50),
-    Product('assets/images/pink_chair.jpg', 'Comfortable Chair', 15, 5),
-    Product('assets/images/white_chair.jpg', 'Simple Chair', 20, 7),
-    Product('assets/images/white_lamp.jpg', 'Nice Lamp', 14, 10),
-    Product('assets/images/yellow_planter.jpg', 'Awesome Planter', 9, 25),
-    Product('assets/images/white_sofa.jpg', 'Blue & white Sofa', 50, 43),
-    Product('assets/images/white_planter.jpg', 'White Planter', 5, 25),
+    Product('assets/images/Current.png', 'Current Account', 90, 15),
+    Product('assets/images/Fixed.png', 'Fixed Time Deposit', 100, 10),
+    Product('assets/images/Repart.png', 'Non-Repatriable Account', 10, 25),
+    Product('assets/images/ECOLFL.png', 'ECOLFL Savings Account', 9, 50),
+    // Product('assets/images/pink_chair.jpg', 'Comfortable Chair', 15, 5),
+    // Product('assets/images/white_chair.jpg', 'Simple Chair', 20, 7),
+    // Product('assets/images/white_lamp.jpg', 'Nice Lamp', 14, 10),
+    // Product('assets/images/yellow_planter.jpg', 'Awesome Planter', 9, 25),
+    // Product('assets/images/white_sofa.jpg', 'Blue & white Sofa', 50, 43),
+    // Product('assets/images/white_planter.jpg', 'White Planter', 5, 25),
   ];
   @override
   Widget build(BuildContext context) {
@@ -168,7 +168,7 @@ class _Home2State extends State<Home2> {
                 itemCount: productList.length,
                 itemSize: 150,
                 onItemFocus: (index) {},
-                dynamicItemSize: false,
+                dynamicItemSize: true,
               ),
             )
           ],
