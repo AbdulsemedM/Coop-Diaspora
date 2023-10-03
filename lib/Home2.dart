@@ -1,6 +1,7 @@
 import 'package:diaspora/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:scroll_snap_list/scroll_snap_list.dart';
 
 class Home2 extends StatefulWidget {
   const Home2({super.key});
@@ -10,6 +11,18 @@ class Home2 extends StatefulWidget {
 }
 
 class _Home2State extends State<Home2> {
+  List<Product> productList = [
+    Product('assets/images/Current.png', 'Current Account', 90, 15),
+    Product('assets/images/Fixed.png', 'Fixed Time Deposit', 100, 10),
+    Product('assets/images/Repart.png', 'Non-Repatriable Account', 10, 25),
+    Product('assets/images/ECOLFL.png', 'ECOLFL Savings Account', 9, 50),
+    // Product('assets/images/pink_chair.jpg', 'Comfortable Chair', 15, 5),
+    // Product('assets/images/white_chair.jpg', 'Simple Chair', 20, 7),
+    // Product('assets/images/white_lamp.jpg', 'Nice Lamp', 14, 10),
+    // Product('assets/images/yellow_planter.jpg', 'Awesome Planter', 9, 25),
+    // Product('assets/images/white_sofa.jpg', 'Blue & white Sofa', 50, 43),
+    // Product('assets/images/white_planter.jpg', 'White Planter', 5, 25),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +47,7 @@ class _Home2State extends State<Home2> {
                 color: Colors.black,
               ),
               onPressed: () {
-                Navigator.pop(context); // Navigate back to the previous screen
+                // Navigator.pop(context); // Navigate back to the previous screen
               },
             ),
           ),
@@ -42,6 +55,7 @@ class _Home2State extends State<Home2> {
       ),
       body: SafeArea(
           child: Container(
+        height: MediaQuery.of(context).size.height,
         child: Column(
           children: [
             Container(
@@ -74,81 +88,151 @@ class _Home2State extends State<Home2> {
               ),
             ),
             Container(
-  alignment: Alignment.centerLeft,
-  child: Align(
-    alignment: Alignment.centerLeft,
-    child: Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 5),
-          child: GestureDetector(
-            // onTap: () {
-            //   Navigator.push(
-            //     context,
-            //     MaterialPageRoute(builder: (context) => Confirm_OTP()),
-            //   );
-            // },
-            child: SizedBox(
-              height: 50, // Adjust the height as needed
-              child: Container(
-                padding: const EdgeInsets.all(5.0),
-                decoration: BoxDecoration(
-                  color: Colors_selector.primaryColor,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Center(
-                  child: Text(
-                    "Open an account",
-                    style: TextStyle(
-                      color: Colors_selector.tertiaryColor,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+              alignment: Alignment.centerLeft,
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 80, vertical: 5),
+                      child: GestureDetector(
+                        // onTap: () {
+                        //   Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(builder: (context) => Confirm_OTP()),
+                        //   );
+                        // },
+                        child: SizedBox(
+                          height: 50, // Adjust the height as needed
+                          child: Container(
+                            padding: const EdgeInsets.all(5.0),
+                            decoration: BoxDecoration(
+                              color: Colors_selector.primaryColor,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Center(
+                              child: Text(
+                                "Open an account",
+                                style: GoogleFonts.kanit(
+                                  color: Colors_selector.tertiaryColor,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 80, vertical: 5),
+                      child: GestureDetector(
+                        // onTap: () {
+                        //   Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(builder: (context) => Confirm_OTP()),
+                        //   );
+                        // },
+                        child: SizedBox(
+                          height: 50, // Adjust the height as needed
+                          child: Container(
+                            padding: const EdgeInsets.all(5.0),
+                            decoration: BoxDecoration(
+                              color: Colors_selector.secondaryColor,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Center(
+                              child: Text(
+                                "Request Loan",
+                                style: GoogleFonts.kanit(
+                                  color: Colors_selector.tertiaryColor,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 5),
-          child: GestureDetector(
-            // onTap: () {
-            //   Navigator.push(
-            //     context,
-            //     MaterialPageRoute(builder: (context) => Confirm_OTP()),
-            //   );
-            // },
-            child: SizedBox(
-              height: 50, // Adjust the height as needed
-              child: Container(
-                padding: const EdgeInsets.all(5.0),
-                decoration: BoxDecoration(
-                  color: Colors_selector.secondaryColor,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Center(
-                  child: Text(
-                    "Request Loan",
-                    style: TextStyle(
-                      color: Colors_selector.tertiaryColor,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.4,
+              child: ScrollSnapList(
+                itemBuilder: _buildListItem,
+                itemCount: productList.length,
+                itemSize: 150,
+                onItemFocus: (index) {},
+                dynamicItemSize: true,
               ),
-            ),
-          ),
-        ),
-      ],
-    ),
-  ),
-),
-
+            )
           ],
         ),
       )),
     );
   }
+
+  Widget _buildListItem(BuildContext context, int index) {
+    Product product = productList[index];
+    return SizedBox(
+      width: 200,
+      height: 300,
+      child: Card(
+        elevation: 12,
+        child: ClipRRect(
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
+          child: Column(
+            children: [
+              Image.asset(
+                product.imagePath,
+                fit: BoxFit.cover,
+                width: 200,
+                height: 230,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(
+                product.title,
+                style: GoogleFonts.kanit(fontSize: 15),
+              ),
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(horizontal: 8),
+              //   child: Row(
+              //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //     children: [
+              //       Text(
+              //         '\$${product.cost}',
+              //         style: const TextStyle(fontWeight: FontWeight.bold),
+              //       ),
+              //       Text(
+              //         '${product.reviewCount} Reviews',
+              //         style: const TextStyle(color: Colors.blue),
+              //       )
+              //     ],
+              //   ),
+              // )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class Product {
+  final String imagePath;
+
+  final String title;
+
+  final double cost;
+
+  final int reviewCount;
+
+  Product(this.imagePath, this.title, this.cost, this.reviewCount);
 }
