@@ -17,7 +17,7 @@ class _Home2State extends State<Home2> {
     Product('assets/images/Fixed.png', 'Fixed Time Deposit', 100, 10),
     Product('assets/images/Repart.png', 'Non-Repatriable Account', 10, 25),
     Product('assets/images/ECOLFL.png', 'ECOLFL Savings Account', 9, 50),
-    // Product('assets/images/pink_chair.jpg', 'Comfortable Chair', 15, 5),
+    Product('assets/images/internet.png', 'Internet Banking', 15, 5),
     // Product('assets/images/white_chair.jpg', 'Simple Chair', 20, 7),
     // Product('assets/images/white_lamp.jpg', 'Nice Lamp', 14, 10),
     // Product('assets/images/yellow_planter.jpg', 'Awesome Planter', 9, 25),
@@ -50,7 +50,11 @@ class _Home2State extends State<Home2> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Menu()),
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) =>
+                        const Menu(),
+                    
+                  ),
                 );
               },
             ),
@@ -205,22 +209,6 @@ class _Home2State extends State<Home2> {
                 product.title,
                 style: GoogleFonts.kanit(fontSize: 15),
               ),
-              // Padding(
-              //   padding: const EdgeInsets.symmetric(horizontal: 8),
-              //   child: Row(
-              //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //     children: [
-              //       Text(
-              //         '\$${product.cost}',
-              //         style: const TextStyle(fontWeight: FontWeight.bold),
-              //       ),
-              //       Text(
-              //         '${product.reviewCount} Reviews',
-              //         style: const TextStyle(color: Colors.blue),
-              //       )
-              //     ],
-              //   ),
-              // )
             ],
           ),
         ),
