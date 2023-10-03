@@ -1,3 +1,4 @@
+import 'package:diaspora/Menu.dart';
 import 'package:diaspora/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -47,7 +48,10 @@ class _Home2State extends State<Home2> {
                 color: Colors.black,
               ),
               onPressed: () {
-                // Navigator.pop(context); // Navigate back to the previous screen
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Menu()),
+                );
               },
             ),
           ),
