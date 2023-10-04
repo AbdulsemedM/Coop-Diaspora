@@ -12,11 +12,23 @@ class Menu extends StatefulWidget {
 class _MenuState extends State<Menu> {
   final List<ListItem> items = [
     ListItem('About', FontAwesomeIcons.info, false, []),
-    ListItem('Get A Loan', FontAwesomeIcons.creditCard, false, []),
     ListItem('Money Transfer', FontAwesomeIcons.paperPlane, true,
         ['Option 1', 'Option 2', 'Option 3']),
-    ListItem('Coop-Bank Alhuda', Icons.mosque, true,
-        ['Option 1', 'Option 2', 'Option 3']),
+    ListItem('Get A Loan', FontAwesomeIcons.creditCard, false, []),
+    ListItem('Coop-Bank Alhuda', Icons.mosque, true, [
+      'About Coop-Bank Alhuda',
+      'Diaspora Wadia Saving Account',
+      'Diaspora Mudarabah Savings Account',
+      'Diaspora Mudarabah Fixed Term Deposit'
+    ]),
+    ListItem('More', FontAwesomeIcons.ellipsis, true, [
+      'Loan Calculator',
+      'FAQ',
+      'Blogs',
+      'Forms',
+      'Vacancy',
+      'Exchange Rate'
+    ]),
     // Add more items as needed
   ];
   @override
@@ -65,6 +77,11 @@ class _MenuState extends State<Menu> {
                 itemBuilder: (context, index) {
                   return Card(
                     child: ExpansionTile(
+                      iconColor: Colors_selector.primaryColor,
+                      // backgroundColor: Colors_selector.grey,
+                      trailing: items[index].isExpanded
+                          ? Icon(FontAwesomeIcons.angleDown)
+                          : Icon(FontAwesomeIcons.angleRight),
                       title: Row(
                         children: [
                           Icon(items[index].icon),
