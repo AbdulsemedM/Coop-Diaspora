@@ -68,29 +68,29 @@ class _MyHomePageState extends State<MyHomePage> {
                     fit: BoxFit.cover,
                   ),
                 ),
-                child: Container(
-                  alignment: Alignment.topRight,
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          primary: Colors_selector
-                              .primaryColor // Set the background color of the button
-                          ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Home2()),
-                        );
-                      },
-                      child: Text(
-                        "Learn More",
-                        style: GoogleFonts.kanit(fontWeight: FontWeight.w600),
-                      ),
-                    ),
-                  ),
-                ),
+                // child: Container(
+                //   alignment: Alignment.topRight,
+                //   child: Padding(
+                //     padding: const EdgeInsets.all(10.0),
+                //     child: ElevatedButton(
+                //       style: ElevatedButton.styleFrom(
+                //           primary: Colors_selector
+                //               .primaryColor // Set the background color of the button
+                //           ),
+                //       onPressed: () {
+                //         Navigator.push(
+                //           context,
+                //           MaterialPageRoute(
+                //               builder: (context) => const Home2()),
+                //         );
+                //       },
+                //       child: Text(
+                //         "Learn More",
+                //         style: GoogleFonts.kanit(fontWeight: FontWeight.w600),
+                //       ),
+                //     ),
+                //   ),
+                // ),
               ),
             ),
           ],
